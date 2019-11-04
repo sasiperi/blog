@@ -28,7 +28,7 @@
     border-left: 5px solid #2ca6cb;
     line-height: 1.5;
 }
-.post header h2{
+.post header h2{ 
     color: #2ca6cb;
 }
 .post header p.post-meta{

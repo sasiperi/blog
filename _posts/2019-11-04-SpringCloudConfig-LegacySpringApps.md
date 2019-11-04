@@ -53,32 +53,80 @@ public class SpringCloudConfigContext extends XmlWebApplicationContext {
 
 
 # Step-2:  Override Property Locator
+1. Override method createEnvironment() method of the default context class, to return your custom configurable environment. So that we can override the Locate Property Source. (the property location and population happens during “locate” in the default environment class (incase of Web Mvc, which would be StandardServletEnvironment)
 
 ~~~java
-int currentLevel = INITIAL_CHUNK_LEVEL;
-List<Future<Chunk>> mergeFutureList = new ArrayList<>();
-while (true) {
-    //从队列中获取一组chunk
-    List<Chunk> pollChunks = pollChunks(chunkQueue, currentLevel);
-    //未取到同级chunk, 表示此级别应合并完成
-    if (CollectionUtils.isEmpty(pollChunks)) {
-        mergeFutureList.stream().map(this::get).forEach(chunkQueue::add);
-        mergeFutureList.clear();
-        //chunkQueue 中只有一个元素，表示此次合并是最终合并
-        if (chunkQueue.size() == 1) {
-            break;
-        } else {
-            currentLevel++;
-            continue;
-        }
-    }
-    Future<Chunk> chunk = threadPoolExecutor.submit(() -> merge(pollChunks, original));
-    mergeFutureList.add(chunk);
-}
+public class MyCloudConfigEnvironment extends StandardServletEnvironment
+{
+    @Override
+    protected void customizePropertySources(MutablePropertySources propertySources)
+    {
 ~~~
 
 # Step-3:  Config Server Authentication
+## 1. Open Source Spring Config Server (BASIC Auth)
+Basic authorization is simple and is automatically handled (by default) by Congig Client itself either when spring cloud config user/password environment vars are configured. Or by simply configuring them in the URI itself. Actual names of the env vars is shown in the screen shot, under step-4.
+## 2. PCF Config Server from market place (OAUTH2)
+Unlike Open Source Spring Config server (which by default supports basic auth only), the one from PCF market place OAUTH2 (I think pcf works with server side decrypt only, for props that are encrypted, though)
+
+Spring Config Client by default does not support OAUTH2 our of the box. So little more work need to be done in the above CHAHCloudConfigEnvironment, to manually create a RestTemplate and inject that into “ConfigServicePropertySourceLocator” so that it will use OAUTH2 headers instead of BASIC-AUTH headers.
+
+## 3. Sample code for MyCloudConfigEnvironment.  
+Below sample code does OAUTH2, as there is nothing needs to be done specially for BASIC
+~~~java
+public class MyCloudConfigEnvironment extends StandardServletEnvironment
+{   
+    public CHAHCloudConfigEnvironment()
+    {
+        super();
+    }
+    @Override
+    protected void customizePropertySources(MutablePropertySources propertySources)
+    {
+        super.customizePropertySources(propertySources);
+        try
+        {
+            PropertySource<?> source = initConfigServicePropertySourceLocator(this);
+            propertySources.addLast(source);
+        }
+        catch (Exception ex)
+        {
+            logger.warn("failed to initialize cloud config environment", ex);
+        }
+    }
+    
+    private OAuth2ProtectedResourceDetails fullAccessresourceDetailsClientOnly(String accessTokenUri, String clientId, String clientSecret) 
+    {
+            ClientCredentialsResourceDetails resource = new ClientCredentialsResourceDetails();
+            resource.setAccessTokenUri(accessTokenUri);
+            resource.setClientSecret(clientSecret);
+            resource.setClientId(clientId);
+            resource.setGrantType("client_credentials");
+            resource.setAuthenticationScheme(AuthenticationScheme.header);
+            return resource;
+    }
+    private PropertySource<?> initConfigServicePropertySourceLocator(Environment environment)
+    {
+        ConfigClientProperties configClientProperties = new ConfigClientProperties(environment);
+        System.out.println(environment.toString());
+        configClientProperties.setUri(environment.getProperty("SPRING_CLOUD_CONFIG_URI", "http://localhost:8888"));
+        System.out.println("##################### will load the client configuration");
+        System.out.println(configClientProperties);
+        ConfigServicePropertySourceLocator configServicePropertySourceLocator = new ConfigServicePropertySourceLocator(configClientProperties);
+        OAuth2ProtectedResourceDetails resource = fullAccessresourceDetailsClientOnly(environment.getProperty("SPRING_CLOUD_CONFIG_TOKEN_URI"),environment.getProperty("SPRING_CLOUD_CONFIG_CLIENT_ID"),environment.getProperty("SPRING_CLOUD_CONFIG_CLIENT_SECRET"));
+        OAuth2RestTemplate restTemplate = new OAuth2RestTemplate(resource);
+        configServicePropertySourceLocator.setRestTemplate(restTemplate);
+        return configServicePropertySourceLocator.locate(environment);
+    }
+}
+ 
+~~~
+
 # Step-4:  Environment properties
+The following environment properties need to be configured, which will be pulled via Environment class, and will be overridden in the Config Client. (as shown in the below screen shot)
+
+Note: For basic auth you can just make id/pwd part of URL (e.g. http://id:pwd@URI-path)
+
 # Step-5:  All set
 # Hybris specific changes
 

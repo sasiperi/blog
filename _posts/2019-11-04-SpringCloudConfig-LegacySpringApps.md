@@ -13,51 +13,42 @@ layout: post
 * TOC
 {:toc}
 
-1. Step-0: Dependencies
-2. Step-1 : Cloud Web Context Class
-3. Step-2:  Override Property Locator
-4. Step-3:  Config Server Authentication
-5. Step-4:  Environment properties
-6. Step-5:  All set
-7. Hybris specific changes
+Below steps explain, how to integrate Spring Config Client with a legacy Spring Web/MVC application. Same steps fundamentally can be extended to any Spring based application, may be with minor modifications and(or) additional changes.
 
+For example:
+
+Spring Config Client can even be integrated with packaged solutios as SAP-Hybris eComm platform.  The implementation for this is little more  complex, but can be done seamlessly and can be integrated with Hybris Platform Context’s HAC by overriding the default web/spring context all together as it is underneath is a java/spring based framerowrk. At the bottom of this blog, the section "Spring Cloud Config for Hybris" shows how below generic 6 steps can slightly be modfified (and with couple of more hybris specifc changes).
 
 # Step-0: Dependencies
 
-~~~java
-this.threadPoolExecutor = new ThreadPoolExecutor(8, 8, 10L, TimeUnit.SECONDS,
-    new LinkedBlockingQueue<>(8),
-    new CustomizableThreadFactory("fileSorterTPE-"),
-    new ThreadPoolExecutor.CallerRunsPolicy());
-~~~
+Add SpringCloudConfigClient jar (spring-cloud-config-client) as the dependency to your project (all other it’s dependencies will be pulled by itself if using maven/gradle. In case of Ant, you have to manually copy all jars to lib)
+
+Note: In addition to the above you would need spring security outh2 client, if connecting to a OAUTH2 backed config server.
 
 # Step-1 : Cloud Web Context Class
 
+1. Override default contextClass  (which by default in case of MVC typically is
+XmlWebApplicationContext) with your custom class, in the web.xml.  
+2. This param typically is fed into Spring Dispatcher Servlet.
+3. Below is a sample web.xml 
+~~~xml
+       <context-param>
+          <description> Override default context with Spring Cloud Context for Config Client</description>
+          <param-name>contextClass</param-name>
+          <param-value>com.cardinalhealth.chh.storefront.config.SpringCloudConfigAppContext</param-value>
+       </context-param>
+~~~
+4. Below is sample implementation of SpringCloudConfigAppContext class
+
 ~~~java
-List<Future<Chunk>> splitFutureList = new ArrayList<>();
-while (true){
-    line = br.readLine();
-    if(line != null){
-        chunkRows.add(line);
-    }
-    if(line == null || chunkRows.size() >= initialChunkSize){
-        if(chunkRows.size() > 0){
-            final int rn = rowNum;
-            final List<String> cr = chunkRows;
-            rowNum += chunkRows.size();
-            chunkRows = new ArrayList<>();
-            Future<Chunk> chunk = threadPoolExecutor.submit(() -> {
-                cr.sort(comparator);
-                return initialChunk(rn, cr, file);
-            });
-            splitFutureList.add(chunk);
-        }
-    }
-    if(line == null){
-        break;
-    }
+
+public class SpringCloudConfigContext extends XmlWebApplicationContext {
+  @Override
+  protected ConfigurableEnvironment createEnvironment() {
+    System.out.println("##################### loaded my comfigurable context");
+    return new CHAHCloudConfigEnvironment();
+  }
 }
-chunkList = splitFutureList.stream().map(this::get).collect(Collectors.toList());
 ~~~
 
 
@@ -85,4 +76,9 @@ while (true) {
     mergeFutureList.add(chunk);
 }
 ~~~
+
+# Step-3:  Config Server Authentication
+# Step-4:  Environment properties
+# Step-5:  All set
+# Hybris specific changes
 

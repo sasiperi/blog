@@ -13,7 +13,7 @@ layout: null
 }
 
 .navbar-tiffany{
-    background-color: #2ca6cb;
+    background-color: #002b36;
     border-top: 1px solid rgba(255,255,255,0.2);
     border-bottom: 1px solid rgba(0,0,0,0.1);
     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
@@ -111,7 +111,7 @@ body {
 
 body,code,pre{
     font-family:  "Menlo", "Monaco", "Consolas", "Courier New", "monospace", "Helvetica", "Tahoma", "Arial",
-    "WenQuanYi Micro Hei", "文泉驿微米黑", "STXihei", "华文细黑", "Microsoft YaHei", "微软雅黑", "SimSun", "宋体", "Heiti", "黑体", sans-serif;
+   "Heiti",sans-serif;
 }
 
 body,.sheet,pre,code{
@@ -119,10 +119,10 @@ body,.sheet,pre,code{
 }
 
 
-a:link {text-decoration: none}		/* 未访问的链接 */
-a:visited {text-decoration: none}	/* 已访问的链接 */
-a:hover {text-decoration: none}	/* 鼠标移动到链接上 */
-a:active {text-decoration: none}	/* 选定的链接 */
+a:link {text-decoration: none}		
+a:visited {text-decoration: none}	
+a:hover {text-decoration: none}	
+a:active {text-decoration: none}
 
 .main{
     min-height: 100%;

@@ -29,15 +29,15 @@
     line-height: 1.5;
 }
 .post header h2{ 
-    color: #817c7c;
+    color: #006666;
 }
 .post header p.post-meta{
-    color: #817c7c;
+    color: #669999;
 }
 
 .post header p.post-tag a{
     display: inline-block;
-    background: #817c7c;
+    background: #006666;
     color: #fff;
     padding: 2px 5px 0px 5px;
     border: 1px solid #2ca6cb;
@@ -77,7 +77,7 @@
 
 @media screen and (min-width: 1200px){
     /**
-      * 文章目录相关
+      * 
       */
     .post ul#markdown-toc {
         display: none!important;

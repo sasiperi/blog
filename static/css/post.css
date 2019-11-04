@@ -29,7 +29,7 @@
     line-height: 1.5;
 }
 .post header h2{ 
-    color: #2ca6cb;
+    color: #817c7c;
 }
 .post header p.post-meta{
     color: #817c7c;
@@ -37,7 +37,7 @@
 
 .post header p.post-tag a{
     display: inline-block;
-    background: #2ca6cb;
+    background: #817c7c;
     color: #fff;
     padding: 2px 5px 0px 5px;
     border: 1px solid #2ca6cb;

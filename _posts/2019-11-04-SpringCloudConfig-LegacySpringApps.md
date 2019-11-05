@@ -270,9 +270,10 @@ public class HybrisStorefrontContextLoaderListener extends HybrisContextLoaderLi
 	@Override
 	protected Class<?> determineContextClass(ServletContext servletContext) {
 		String contextClassName = servletContext.getInitParameter(CONTEXT_CLASS_PARAM);
+		//below is needed ONLY if your version of Hybris is not already loading the servelt in the intended order, in the web.xml for some reason. Below then is a work around. Not needed otherwise for Hybrs6.0 and above
 		/*if(contextClassName == null)
 		{
-			contextClassName = "com.cardinalhealth.chh.storefront.config.SpringCloudConfigContext";
+			contextClassName = "com.yourpackage.storefront.config.SpringCloudConfigContext";
 		}*/
 		if (contextClassName != null) {
 			try {
@@ -297,7 +298,7 @@ public class HybrisStorefrontContextLoaderListener extends HybrisContextLoaderLi
 	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		//event.getServletContext().setInitParameter(CONTEXT_CLASS_PARAM, "com.cardinalhealth.chh.storefront.config.SpringCloudConfigContext");
+		
 		this.initWebApplicationContext(event.getServletContext());
 	}
 

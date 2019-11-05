@@ -9,7 +9,7 @@ categories: developer
 desc: Integrating with SSO/IDP for PCF hooused microservices
 excerpt: In this blog, we will see how to seamlessly integrate applications deployed in PCF with your SSO/IDP. There are 2 parts to this.We will in this article cover both a) Platform level configuration changes b) Application level changes
 layout: post
-published: false
+
 ---
 
 * TOC

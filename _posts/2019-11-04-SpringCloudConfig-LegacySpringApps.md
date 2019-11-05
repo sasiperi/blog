@@ -127,6 +127,8 @@ The following environment properties need to be configured, which will be pulled
 
 Note: For basic auth you can just make id/pwd part of URL (e.g. http://id:pwd@URI-path)
 
+![eclipse-props]
+
 # Step-5:  All set
 # Hybris specific changes
 

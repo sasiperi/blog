@@ -9,6 +9,7 @@ categories: developer
 desc: Integrating Spring Cloud Config Server with Legacy Spring Apps
 excerpt: In this blog, we will see how to integrate Spring Config Client with a legacy Spring Web/MVC application.
 layout: post
+published: false
 ---
 
 * TOC

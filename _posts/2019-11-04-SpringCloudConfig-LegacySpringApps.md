@@ -182,7 +182,7 @@ The following environment properties need to be configured, which will be pulled
 
 Note: For basic auth you can just make id/pwd part of URL (e.g. http://id:pwd@URI-path)
 
-![config props](../static/img/eclipse-props.png)
+![config props](https://sasiperi.github.io/blog//static/img/eclipse-props.png)
 
 # Step-5:  All set
 Everything is set and ready to pull props just like you would pull it from Spring Boot. Sample props class

@@ -121,9 +121,9 @@ public class CloudEnvironment extends StandardServletEnvironment
 
 # Step-3:  Config Server Authentication
 ## 1. Open Source Spring Config Server (BASIC Auth)
-Basic authorization is simple and is automatically handled (by default) by Congig Client itself either when spring cloud config user/password environment vars are configured. Or by simply configuring them in the URI itself. Actual names of the env vars is shown in the screen shot, under step-4.
+Basic authorization is simple and is automatically handled (by default) by Congig Client itself either when spring cloud config user/password environment vars are configured. Or by simply configuring them in the URI itself. Actual names of the env vars is shown in the screen shot, under step-4.Oneof the props can also include Decrypt-Key a) if any of the peops are encrypted b) you do not like config-server to decrypt and send over the wire, but like Client to decyrpt off the wire.
 ## 2. PCF Config Server from market place (OAUTH2)
-Unlike Open Source Spring Config server (which by default supports basic auth only), the one from PCF market place OAUTH2 (I think pcf works with server side decrypt only, for props that are encrypted, though)
+Unlike Open Source Spring Config server (which by default supports basic auth only), the one from PCF market place by defaukt uses OAUTH2 for security (note: pcf tile works with server side decrypt only, for props that are encrypted)
 
 Spring Config Client by default does not support OAUTH2 our of the box. So little more work need to be done in the above CHAHCloudConfigEnvironment, to manually create a RestTemplate and inject that into “ConfigServicePropertySourceLocator” so that it will use OAUTH2 headers instead of BASIC-AUTH headers.
 

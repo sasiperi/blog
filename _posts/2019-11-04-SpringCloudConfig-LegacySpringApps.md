@@ -7,24 +7,24 @@ tags:
 - Hybris
 categories: developer
 desc: Integrating Spring Cloud Config Server with Legacy Spring Apps
-excerpt: In this blog, we will see how to integrate Spring Config Client with a legacy Spring Web/MVC application.
+excerpt: In this blog, we will see how to integrate Spring Config Client with a legacy SpringWeb/MVC application.
 layout: post
 ---
 
 * TOC
 {:toc}
 
-In this blog, we will see how to integrate Spring Config Client with a legacy Spring Web/MVC application. Same stepsdetailed below fundamentally can be extended to any Spring based application, may be with minor modifications and(or) additional changes.
+In this blog, we will see how to integrate Spring Config Client with a legacy Spring Web/MVC application. Same steps detailed below fundamentally can be extended to any Spring based application, may be with minor modifications and(or) additional changes.
 
-For example:
+**For example:**
 
-Spring Config Client can even be integrated with packaged solutios as SAP-Hybris eComm platform.  The implementation for this is little more  complex, but can be done seamlessly and can be integrated with Hybris Platform Context’s HAC by overriding the default web/spring context all together as it is underneath is a java/spring based framerowrk. At the bottom of this blog, the section "Spring Cloud Config for Hybris" shows how below generic 6 steps can slightly be modfified (and with couple of more hybris specifc changes).
+Spring Config Client can even be integrated with packaged solutios such as **SAP-Hybris eComm platform**.  The implementation for this is little more  complex, but can be done seamlessly and can be integrated with Hybris Platform Context and be able to view then in HAC (i.e. by overriding the default hybris context). That is possible becuase it is underneath is a java/spring based framerowrk. At the bottom of this blog, the section "Spring Cloud Config for Hybris" shows how below generic 6 steps can slightly be modfified (and with couple of more hybris specifc changes).
 
 # Step-0: Dependencies
 
-Add SpringCloudConfigClient jar (spring-cloud-config-client) as the dependency to your project (all other it’s dependencies will be pulled by itself if using maven/gradle. In case of Ant, you have to manually copy all jars to lib)
+Add SpringCloudConfigClient jar (mvn artifcat spring-cloud-config-client) as the dependency to your project (all other dependencies required by this will be pulled if you are using maven/gradle. In case of Ant, you ant-task have to manually copy all jars to lib)
 
-Note: In addition to the above you would need spring security outh2 client, if connecting to a OAUTH2 backed config server.
+**Note**: *In addition to the above you would need spring security outh2 client, if connecting to a **OAUTH2** backed config server*.
 
 # Step-1 : Cloud Web Context Class
 

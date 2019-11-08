@@ -31,13 +31,13 @@ title: "sasiperi-blog"
 email: pvssasikala@gmail.com
 description: "My Blog"
 github:
-  username: bit-ranger
+  username: sasiperi
 swiftype:
   searchId: iXZyPokVfxFaBTvi64Y6
 gitment:
     repo: blog
-    client_id: a6fb73b3e790e234bab8
-    client_secret: cc10aaff53a03d05ab2ee002dbf401dd7627c7a3
+    client_id: ac390892dbc217bcdd14
+    client_secret: be4613ffcc67d575e9c78f17f38966d06e468466
 
 url: "https://sasiperi.github.io"
 imgrepo: "https://sasiperi.github.io/blog/static/img"

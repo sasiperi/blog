@@ -1,5 +1,5 @@
 ---
-title: SpringCloudConfig for Legacy Spring Apps
+title: SpringCloudConfig - Legacy Spring Apps
 tags: 
 - java
 - Spring Boot

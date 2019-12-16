@@ -20,7 +20,7 @@ layout: post
 Spring-boot-starter-alexa is an open source project, licenced under Apache V2. This is a spring boot starter, that helps to host a Custom Skill as a Web Service, using SpringBoot, which 
 * Auto configures Speechlet, abstracts all the boilerplate code that is needed Alexa Skill Kit.
 * Provides default implementation for generic intents, that would occur during the life cycle of the custom intents (start session, wakeup words, ending sessions and Alexa Build in Intents such as welcome/hello). This all can be managed by configuring proper responses in the application.propeties
-## *Alexa SDK Note*
+#### *Alexa SDK Note*
 **This starter is compatable (and is built using) Amazon Alexa SK V1. Spring Boot Starter for V2 (ASK SDK) is underway soon to be relased. Watch out this space !!**
 
 This blog is a guide that walks you through the process of building an application that uses Spring Boot Starter Alexa, to build custom skill as a web service.

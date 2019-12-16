@@ -60,7 +60,7 @@ Crate a spring boot starter project using spring boot initializer available in I
 * Open pom.xl (or gradle) and spring-boot-starter-alexa dependency.
 * Current release version is 1.0.
 
-[Sample Maven Code]https://github.com/sasiperi/alexa-spring-boot/blob/86300097178b1a57f77aa05d19451fe098211a70/samples/alexa-helloworld-springboot-starter-pcf/pom.xml#L28-L32
+[Sample Maven Code](https://github.com/sasiperi/alexa-spring-boot/blob/86300097178b1a57f77aa05d19451fe098211a70/samples/alexa-helloworld-springboot-starter-pcf/pom.xml#L28-L32)
 
 ~~~xml
     <dependency>

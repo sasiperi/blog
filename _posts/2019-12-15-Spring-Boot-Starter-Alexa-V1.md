@@ -197,9 +197,9 @@ I use [SemVer](http://semver.org/) for versioning. For the versions available, s
 This project is licensed under the Apache V2 License - see the [LICENSE](https://github.com/sasiperi/alexa-spring-boot/blob/master/LICENSE) file for details
 
 ## Acknowledgments
-* Inspiration
-- [David Conway](https://www.linkedin.com/in/david-conway-31681513/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_top%3BYB6kGZP%2FQdSP%2Fzr%2B2vFEzw%3D%3D&licu=urn%3Ali%3Acontrol%3Ad_flagship3_search_srp_top-search_srp_result&lici=FXLx3kG0REi70kl3UZAElw%3D%3D), Managing Director, Morgan Stanely
--[Jim Shingler](https://github.com/jshingler), Director, Enterprise Arch, Cardinal Health
+### Inspiration
+1. [David Conway](https://www.linkedin.com/in/david-conway-31681513/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_top%3BYB6kGZP%2FQdSP%2Fzr%2B2vFEzw%3D%3D&licu=urn%3Ali%3Acontrol%3Ad_flagship3_search_srp_top-search_srp_result&lici=FXLx3kG0REi70kl3UZAElw%3D%3D), Managing Director, Morgan Stanely
+2. [Jim Shingler](https://github.com/jshingler), Director, Enterprise Arch, Cardinal Health
 
 
 

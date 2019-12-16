@@ -60,7 +60,7 @@ Crate a spring boot starter project using spring boot initializer available in I
 * Open pom.xl (or gradle) and spring-boot-starter-alexa dependency.
 * Current release version is 1.0.
 
-https://github.com/sasiperi/alexa-spring-boot/blob/86300097178b1a57f77aa05d19451fe098211a70/samples/alexa-helloworld-springboot-starter-pcf/pom.xml#L28-L32
+[Sample Maven Code]https://github.com/sasiperi/alexa-spring-boot/blob/86300097178b1a57f77aa05d19451fe098211a70/samples/alexa-helloworld-springboot-starter-pcf/pom.xml#L28-L32
 
 ~~~xml
     <dependency>
@@ -101,7 +101,7 @@ End with an example of getting some data out of the system or using it for a lit
 Starter will auto cinfigure ASK SDK for you. You need to override onIntent() method of the default Specchlet implementation.
 Example snippet
 
-[Example Snippet(https://github.com/sasiperi/alexa-spring-boot/blob/2c0a3eea40fe27da5d3b12c9dde126c5a968bb1d/samples/alexa-helloworld-springboot-starter-pcf/src/main/java/io/github/sasiperi/alexa/spring/boot/examples/service/HelloWorldSpeechlet.java#L47-L75)
+[Snippet from HelloWorld Sample Project](https://github.com/sasiperi/alexa-spring-boot/blob/2c0a3eea40fe27da5d3b12c9dde126c5a968bb1d/samples/alexa-helloworld-springboot-starter-pcf/src/main/java/io/github/sasiperi/alexa/spring/boot/examples/service/HelloWorldSpeechlet.java#L47-L75)
 
 **Note:
 

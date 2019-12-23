@@ -206,7 +206,8 @@ public class HelloWorldIntentHandler implements RequestHandler
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/sasiperi/spring-boot-starter-alexa/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+- Please read [CONTRIBUTING.md](https://github.com/sasiperi/alexa-spring-boot/tree/master/alexav2-spring-boot-starter/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+- My Github : [sasiperi-github](https://github.com/sasiperi/)
 
 ## Versioning
 

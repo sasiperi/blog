@@ -96,6 +96,12 @@ alexa.card-title=alexa-hello
 #####Comma sepratated list of speechlet URI mappings, which will be invoked for intent(s) ############
 alexa.speechlet-uri-mappings=/alexaHello
 
+##################### Default intents (that can be overriden) ##################
+alexa.intent.stop-intent = AMAZON.StopIntent
+alexa.intent.cancel-intent = AMAZON.CancelIntent
+alexa.intent.help-intent = AMAZON.HelpIntent
+alexa.intent.fallback-intent=AMAZON.FallbackIntent
+
 ############## Various responses, for generic actions and intents ###################
 alexa.response.good-bye= Good Bye Sample Spring Boot Hello 
 alexa.response.hello-intent=Hello Sample Spring Boot Hello
@@ -200,7 +206,8 @@ public class HelloWorldIntentHandler implements RequestHandler
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/sasiperi/spring-boot-starter-alexa/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+- Please read [CONTRIBUTING.md](https://github.com/sasiperi/alexa-spring-boot/tree/master/alexav2-spring-boot-starter/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+- My Github : [sasiperi-github](https://github.com/sasiperi/)
 
 ## Versioning
 

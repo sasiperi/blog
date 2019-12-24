@@ -17,7 +17,7 @@ layout: post
 
 # Alexa V2 Spring Boot Starter for Alexa V2 SDK (ASK-SDK)
 
-After the open source project [alexa-spring-boot-starter](https://mvnrepository.com/artifact/io.github.sasiperi/alexa-spring-boot-starter), now I released [alexav2-spring-boot-starter] (https://mvnrepository.com/artifact/io.github.sasiperi/alexav2-spring-boot-starter), licenced again under Apache V2. This is a spring boot starter, that helps to host a Custom Skill as a Web Service, using SpringBoot, which 
+After the open source project [alexa-spring-boot-starter](https://mvnrepository.com/artifact/io.github.sasiperi/alexa-spring-boot-starter), now I released [alexav2-spring-boot-starter](https://mvnrepository.com/artifact/io.github.sasiperi/alexav2-spring-boot-starter), licenced again under Apache V2. This is a spring boot starter, that helps to host a Custom Skill as a Web Service, using SpringBoot, which 
 * Auto registers (auto configures) ask servlet, abstracts all the boilerplate code that is needed by ask-sdk.
 * Provides default implementation for generic intents, that would occur during the life cycle of the skills (start session, wakeup words, ending sessions and Alexa Build in Intents such as welcome/hello). This all can be overriden by configuring proper responses in the application.propeties
 
